@@ -5,13 +5,16 @@
 */
 
 import React from 'react';
-
-
 import styles from './styles.css';
+import Link from '../Link';
 
 function LinkList({ links }) {
   const linkNodes = links.map(l => (
-    <div key={l.id}>{l.url} - ({l.description})</div>
+    <Link
+      key={l.id}
+      link={l}
+    />
+
   ));
   return (
     <div className={styles.linkList}>
