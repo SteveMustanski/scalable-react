@@ -26,7 +26,7 @@ function Drawer({
   ));
   return (
     <div
-      className={classNames(styles.drawer, { someotherstyle: isDrawerOpen })}
+      className={classNames(styles.drawer, { [styles.drawerOpen]: isDrawerOpen })}
     >
       {itemNodes}
     </div>
