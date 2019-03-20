@@ -1,18 +1,12 @@
 // import { take, call, put, select } from 'redux-saga/effects';
-
+import { REQUEST_TOPICS } from './constants';
 import { takeLatest } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
-import {
-  REQUEST_TOPICS,
-  requestTopicsSucceeded,
-  requestTopicsFailed,
-} from './actions';
+import { requestTopicsSucceeded, requestTopicsFailed } from './actions';
 
 export function fetchTopicsFromServer() {
-  console.log('fetching');
-  return fetch('http://localhost:3000/api/topics').then(
-    response => response.JSON,
-  );
+  return fetch('http://localhost:3000/api/topics')
+    .then(response => response.json());
 }
 
 function* fetchTopics() {
@@ -30,4 +24,6 @@ export function* fetchTopicsSaga() {
 }
 
 // All sagas to be loaded
-export default [fetchTopicsSaga];
+export default [
+  fetchTopicsSaga,
+];
