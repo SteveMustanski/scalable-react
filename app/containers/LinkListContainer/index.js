@@ -7,13 +7,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import selectLinkListContainer from './selectors';
+import LinkList from '../../components/LinkList';
 
-export class LinkListContainer extends React.Component { // eslint-disable-line react/prefer-stateless-function
+export class LinkListContainer extends React.Component {// eslint-disable-line react/prefer-stateless-function
   render() {
-    return (
-      <div>
-      </div>
-    );
+    return <LinkList {...this.props} />;
   }
 }
 
@@ -25,4 +23,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LinkListContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(LinkListContainer);

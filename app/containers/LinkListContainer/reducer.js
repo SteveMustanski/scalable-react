@@ -6,15 +6,23 @@
 
 import { fromJS } from 'immutable';
 import {
-  DEFAULT_ACTION,
+
 } from './constants';
 
-const initialState = fromJS({});
+const initialState = fromJS({
+  links: [
+    {
+      description: 'This is the link desc',
+      url: 'https://github.com/facebook/react',
+      topicName: 'links',
+      id: 'fake',
+    },
+  ],
+});
 
 function linkListContainerReducer(state = initialState, action) {
   switch (action.type) {
-    case DEFAULT_ACTION:
-      return state;
+
     default:
       return state;
   }
