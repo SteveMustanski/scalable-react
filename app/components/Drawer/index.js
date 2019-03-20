@@ -1,22 +1,33 @@
 /**
-*
-* Drawer
-*
-*/
+ *
+ * Drawer
+ *
+ */
 
 import React from 'react';
-
-
 import styles from './styles.css';
+import classNames from 'classnames';
 
-function Drawer({ items, selectItem, itemLabelAttr, itemKeyAttr, isDrawerOpen }) {
+function Drawer({
+  items,
+  selectItem,
+  itemLabelAttr,
+  itemKeyAttr,
+  isDrawerOpen,
+}) {
   const itemNodes = items.map(item => (
-    <div className={styles.item} key={item[itemKeyAttr]} onClick={() => selectItem(item)} isDrawerOpen={isDrawerOpen}>
+    <div
+      className={styles.item}
+      key={item[itemKeyAttr]}
+      onClick={() => selectItem(item)}
+    >
       {item[itemLabelAttr]}
     </div>
   ));
   return (
-    <div className={styles.drawer}>
+    <div
+      className={classNames(styles.drawer, { someotherstyle: isDrawerOpen })}
+    >
       {itemNodes}
     </div>
   );
@@ -28,7 +39,6 @@ Drawer.propTypes = {
   itemLabelAttr: React.PropTypes.string.isRequired,
   itemKeyAttr: React.PropTypes.string.isRequired,
   isDrawerOpen: React.PropTypes.bool.isRequired,
-
 };
 
 export default Drawer;
