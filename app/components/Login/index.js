@@ -5,10 +5,17 @@
 */
 
 import React from 'react';
-
+import validator from 'email-validator';
 import styles from './styles.css';
 
 class Login extends React.Component { // eslint-disable-line react/prefer-stateless-function
+
+  login = () => {
+    const email = this.emailField.value;
+    if (!validator.validate(email)) {
+      console.error('not a valid email');
+    }
+  }
   render() {
     return (
       <div className={styles.login}>
@@ -20,7 +27,7 @@ class Login extends React.Component { // eslint-disable-line react/prefer-statel
           <div className={styles.button}>
             cancel
           </div>
-          <div className={styles.button}>
+          <div className={styles.button} onClick={this.login}>
             log in
           </div>
         </div>
