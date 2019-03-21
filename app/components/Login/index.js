@@ -11,6 +11,9 @@ import classNames from 'classnames';
 
 class Login extends React.Component {
   // eslint-disable-line react/prefer-stateless-function
+  static propTypes = {
+    login: React.PropTypes.func.isRequired,
+  }
   state = {};
 
   login = () => {
@@ -24,6 +27,7 @@ class Login extends React.Component {
     this.setState({
       errorText: null,
     });
+    this.props.login(email);
   };
   render() {
     const fieldError = this.state.errorText ? (
