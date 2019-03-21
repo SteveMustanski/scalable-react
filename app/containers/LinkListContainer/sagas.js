@@ -4,11 +4,9 @@ import { takeLatest } from 'redux-saga';
 import { requestLinksSucceeded, requestLinksFailed } from './actions';
 import { REQUEST_LINKS } from './constants';
 
-
 function fetchLinksFromServer(topicName) {
-  return fetch(`http://localhost:3000/api/topics/${topicName}/Links`).then(
-    response => response.json(),
-  );
+  return fetch(`http://localhost:3000/api/topics/${topicName}/links`)
+    .then(response => response.json());
 }
 
 function* fetchLinks(action) {
@@ -16,9 +14,10 @@ function* fetchLinks(action) {
     const links = yield call(fetchLinksFromServer, action.topicName);
     yield put(requestLinksSucceeded(links));
   } catch (e) {
-    yield requestLinksFailed(e.message);
+    yield put(requestLinksFailed(e.message));
   }
 }
+
 
 // Individual exports for testing
 export function* defaultSaga() {
@@ -26,4 +25,6 @@ export function* defaultSaga() {
 }
 
 // All sagas to be loaded
-export default [defaultSaga];
+export default [
+  defaultSaga,
+];

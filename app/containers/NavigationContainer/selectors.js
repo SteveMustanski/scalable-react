@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect';
 
+
 /**
  * Direct selector to the navigationContainer state domain
  */
@@ -16,7 +17,7 @@ const selectNavigationContainerDomain = () => state => state.get('navigationCont
 
 const selectNavigationContainer = () => createSelector(
   selectNavigationContainerDomain(),
-  (substate) => substate.toJS()
+  (substate, loginSubstate) => Object.assign(substate.toJS(), loginSubstate)
 );
 
 export default selectNavigationContainer;
