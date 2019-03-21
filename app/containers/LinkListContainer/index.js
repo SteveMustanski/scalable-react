@@ -18,6 +18,13 @@ export class LinkListContainer extends React.Component {// eslint-disable-line r
   componentWillMount() {
     this.props.requestLinks(this.props.routeTopicName);
   }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.routeTopicName !== this.props.routeTopicName) {
+      this.props.requestLinks(newProps.routeTopicName);
+    }
+  }
+  
   render() {
     return <LinkList {...this.props} />;
   }
