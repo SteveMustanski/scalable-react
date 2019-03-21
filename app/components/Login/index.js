@@ -34,7 +34,7 @@ class Login extends React.Component {
       <div className={styles.login}>
         <div className={styles.heading}>Login with your email</div>
         <input
-          className={classNames(styles.input, { [styles.inputError] : this.state.errorText })}
+          className={classNames(styles.input, { [styles.inputError]: this.state.errorText })}
           placeholder="Your email"
           ref={f => {
             this.emailField = f;
