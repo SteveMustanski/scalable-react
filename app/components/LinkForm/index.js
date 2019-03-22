@@ -5,8 +5,8 @@
  */
 
 import React from 'react';
-import classNames from 'classnames';
 import styles from './styles.css';
+import TextInput from '../TextInput';
 
 class LinkForm extends React.Component {
   // eslint-disable-line react/prefer-stateless-function
@@ -16,29 +16,20 @@ class LinkForm extends React.Component {
       <div className={styles.overlay}>
         <div className={styles.linkForm}>
           <div className={styles.heading}>Add a link</div>
-          <input
-            className={classNames(styles.input, {
-              [styles.inputError]: this.state.errorText,
-            })}
+          <TextInput
             placeholder="URL"
-            ref={f => {
-              this.urlField = f;
-            }}
-            type="text"
+            className={styles.input}
           />
-          <input
-            className={classNames(styles.input, {
-              [styles.inputError]: this.state.errorText,
-            })}
+          <TextInput
             placeholder="Description"
-            ref={f => {
-              this.descriptionField = f;
-            }}
-            type="text"
+            className={styles.input}
           />
 
           <div className={styles.actionContainer}>
-            <div className={styles.button} onClick={this.props.cancelLogin}>
+            <div
+              className={styles.button}
+            // onClick={this.props.cancelLogin}
+            >
               cancel
             </div>
             <div className={styles.button} onClick={this.login}>
