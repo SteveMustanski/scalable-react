@@ -8,6 +8,7 @@ import React from 'react';
 
 import Link from '../Link';
 import styles from './styles.css';
+import IconButton from '../IconButton';
 
 function LinkList({ links, topicName, children }) {
   const linkNodes = links.map(l => (
@@ -21,6 +22,7 @@ function LinkList({ links, topicName, children }) {
     <div className={styles.linkList}>
       <h1>{topicName}</h1>
       {linkNodes}
+      <IconButton icon="plus" />
       {children}
     </div>
   );
