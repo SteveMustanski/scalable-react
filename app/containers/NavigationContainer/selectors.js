@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import selectLoginContainer from '../LoginContainer/selectors';
 
 
 /**
@@ -17,6 +18,7 @@ const selectNavigationContainerDomain = () => state => state.get('navigationCont
 
 const selectNavigationContainer = () => createSelector(
   selectNavigationContainerDomain(),
+  selectLoginContainer(),
   (substate, loginSubstate) => Object.assign(substate.toJS(), loginSubstate)
 );
 
