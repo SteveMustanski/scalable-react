@@ -12,7 +12,7 @@
 import React from 'react';
 import NavigationContainer from '../../containers/NavigationContainer';
 
-export default class HomePage extends React.Component { 
+export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   static propTypes = {
     children: React.PropTypes.element,
   }
